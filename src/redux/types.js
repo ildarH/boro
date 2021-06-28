@@ -1,0 +1,13 @@
+export const SHOW_LOADER = 'SHOW_LOADER'
+export const HIDE_LOADER = 'HIDE_LOADER'
+
+export const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES'
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
+
+export const SHOW_ERROR = 'SHOW_ERROR'
+export const HIDE_ERROR = 'HIDE_ERROR'
+
+export const SET_CLOSED_CARDS = 'SET_CLOSED_CARDS'
+export const CLEAR_CLOSED_CARDS = 'CLEAR_CLOSED_CARDS'
+
+export const FETCH_DATA = 'FETCH_DATA'
