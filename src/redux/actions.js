@@ -13,20 +13,20 @@ import {
 import {Http} from './../api/http'
 
 export const fetchData = (params) => async dispatch => {
-
-  console.log('fetch data');
-
   dispatch({type: SHOW_LOADER})
+  dispatch({type: HIDE_ERROR})
   try {
     const response = await Http.get(params)
-    console.log('response: ', await response);
-    // dispatch({type: FETCH_DATA, payload: response})
+    console.log('response: ', response);
+    dispatch({type: FETCH_DATA, payload: response.length / 10})
+    dispatch({type: SET_TOTAL_PAGES, payload})
   } catch (error) {
-    console.error('error: ', error.results);
-    console.error('error: ', error.result);
     console.error('error: ', error);
     dispatch({type: SHOW_ERROR, payload: error})
   } finally {
     dispatch({type: HIDE_LOADER})
   }
 }
+export const closeCard = (card) => ({type: SET_CLOSED_CARDS, payload: card})
+export const resetCards = () => ({type: CLEAR_CLOSED_CARDS})
+export const setPage = (page) => ({type: SET_CURRENT_PAGE, payload: page})
