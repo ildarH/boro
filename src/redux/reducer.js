@@ -15,7 +15,7 @@ const initialState = {
   data: null,
   error: null,
   closedCards: null,
-  totalPage: 0,
+  totalPages: 0,
   currentPage: 1
 }
 
@@ -73,8 +73,9 @@ export const rootReducer = (state = initialState, {type, payload}) => {
     case SET_TOTAL_PAGES: {
       const newState = {
         ...state,
-        totalPage: payload
+        totalPages: payload
       }
+      console.log('SET_TOTAL_PAGES ', newState);
       return newState
     }
     case SET_CURRENT_PAGE: {

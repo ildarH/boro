@@ -17,9 +17,9 @@ export const fetchData = (params) => async dispatch => {
   dispatch({type: HIDE_ERROR})
   try {
     const response = await Http.get(params)
-    console.log('response: ', response);
+    console.log('response: ', response.length);
     dispatch({type: FETCH_DATA, payload: response})
-    dispatch({type: SET_TOTAL_PAGES, payload: response.length / 10})
+    dispatch({type: SET_TOTAL_PAGES, payload: (response.length / 6)})
   } catch (error) {
     console.error('error: ', error);
     dispatch({type: SHOW_ERROR, payload: error})

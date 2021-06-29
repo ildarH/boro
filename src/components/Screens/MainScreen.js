@@ -3,18 +3,18 @@ import React from 'react';
 import { CardsView, TreeView } from './../Views';
 import { Menu, Footer } from './../Elements';
 
-export const MainScreen = ({ view }) => {
+export const MainScreen = ({ view, data, totalPages }) => {
   const viewSwitch = () => {
     switch (view) {
       case 'TREE': {
         return (
           <>
-            <TreeView />
+            <TreeView data={data} />
           </>
         );
       }
       default:
-        return <CardsView />;
+        return <CardsView data={data} totalPages={totalPages} />;
     }
   };
   return (

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://contest.elecard.ru/frontend_data/';
+import { BASE_URL } from './../config';
 
 export class Http {
   static HEADERS = { "Content-Type": "text/plain;charset=UTF-8" };
