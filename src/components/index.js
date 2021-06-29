@@ -1,2 +1,1 @@
-export { Menu } from './Menu'
-export { AppCard } from './AppCard'
+export { MainScreen } from './Screens/MainScreen'

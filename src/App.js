@@ -1,26 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
-import './App.css';
-import { useDispatch } from 'react-redux'
-import { Menu, AppCard } from './components'
+// import './App.css';
+import { CssBaseline } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { MainScreen } from './components';
 
-import { fetchData } from './redux/actions'
+import { fetchData } from './redux/actions';
 
 function App() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(fetchData('catalog.json'))
-  // }, [])
-  
-
+  useEffect(() => {
+    dispatch(fetchData('catalog.json'))
+  }, [dispatch])
 
   return (
-    <div className='App'>
-      <Menu />
-      <AppCard />
-    </div>
+    // <div className='App'>
+    <>
+      <CssBaseline />
+      <MainScreen />
+    </>
+    // </div>
   );
 }
 

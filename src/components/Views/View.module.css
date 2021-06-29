@@ -1,0 +1,4 @@
+.viewScreen {
+  overflow-y: auto;
+  height: calc(100vh - 48px - 48px);
+}
