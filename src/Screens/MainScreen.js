@@ -1,10 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-
-import { AppCard } from './../components'
+import { AppCard } from './../components';
 
 export const MainScreen = () => {
-  return(
-    
-  )
-}
+  return <AppCard />;
+};

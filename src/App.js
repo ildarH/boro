@@ -1,13 +1,11 @@
-<<<<<<< Updated upstream
+
 import logo from './logo.svg';
-=======
+
 import React from 'react'
 
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-
->>>>>>> Stashed changes
 import './App.css';
 
 import { fetchData } from './redux/actions'
