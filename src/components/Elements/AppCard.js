@@ -1,18 +1,18 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import {
   Card,
   CardHeader,
   Grid,
   CardContent,
   CardMedia,
-  Paper,
   Typography,
   makeStyles,
 } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import { BASE_URL } from '../../config';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,32 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: '20rem',
-    // paddingTop: '56.25%'
   },
   header: {
     fontSize: '10px',
   },
-  // paper: {
-  //   padding: theme.spacing(2),
-  //   height: 345,
-  //   width: 200
-  // }
 }));
 
 export const AppCard = ({ cardData }) => {
-  const { image, filesize, timestamp, category } = cardData;
+  const { id, header, subheader, image, filesize, date, category } = cardData;
 
-  const date = new Date(timestamp);
-  const reg = /^(\D+)/;
-  const header = image
-    .split('/')[1]
-    .split('-')
-    .map((word) => {
-      return reg.test(word) ? word.replace(/^\w/, (c) => c.toUpperCase()) : '';
-    })
-    .join(' ')
-    .trim();
-  console.log('cardData header: ', header);
   const classes = useStyles();
 
   return (
@@ -60,13 +43,26 @@ export const AppCard = ({ cardData }) => {
           }
           titleTypographyProps={{ variant: 'h6' }}
           title={header}
-          subheader={category.replace(/^\w/, (c) => c.toUpperCase())}
+          subheader={subheader}
         />
-        <CardMedia image={`${BASE_URL}${image}`} className={classes.media} />
+        <CardMedia image={image} className={classes.media} />
         <CardContent>
-          <Typography variant='body2'>{date.toUTCString()}</Typography>
+          <Typography variant='body2'>{date}</Typography>
+          <Typography variant='body2'>{id}</Typography>
+          <Typography variant='body2'>{filesize}</Typography>
+          <Typography variant='body2'>{category}</Typography>
         </CardContent>
       </Card>
     </Grid>
   );
+};
+
+AppCard.prototype = {
+  id: PropTypes.number,
+  header: PropTypes.string,
+  subheader: PropTypes.string,
+  image: PropTypes.string,
+  filesize: PropTypes.number,
+  date: PropTypes.string,
+  category: PropTypes.string,
 };
