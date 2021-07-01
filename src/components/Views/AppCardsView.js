@@ -4,7 +4,7 @@ import Pagination from '@material-ui/lab/Pagination';
 import React from 'react';
 import style from './View.module.css';
 
-export const CardsView = ({ data, totalPages }) => {
+export const AppCardsView = ({ data, totalPages }) => {
   return (
     <div className={style.viewScreen}>
       <Pagination count={totalPages} />

@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
   const selectedData = useSelector((state) => state.root.data) || null;
   const selectedTotalPages = useSelector((state) => state.root.totalPages) || null;
-  const { sortedData, requestSort, sortConfig } = useSort(selectedData);
+  const { sortedData, requestSort } = useSort(selectedData);
 
   useEffect(() => {
     dispatch(fetchData('catalog.json'));

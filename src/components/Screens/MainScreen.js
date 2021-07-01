@@ -1,4 +1,4 @@
-import { CardsView, TreeView } from './../Views';
+import { AppCardsView, AppTreeView } from './../Views';
 import { Footer, Menu } from './../Elements';
 
 import React from 'react';
@@ -9,12 +9,12 @@ export const MainScreen = ({ view, data, totalPages, sortHandler }) => {
       case 'TREE': {
         return (
           <>
-            <TreeView data={data} />
+            <AppTreeView data={data} />
           </>
         );
       }
       default:
-        return <CardsView data={data} totalPages={totalPages} />;
+        return <AppCardsView data={data} totalPages={totalPages} />;
     }
   };
   return (
