@@ -1,27 +1,19 @@
 import { AppCardsView, AppTreeView } from './../Views';
 import { Footer, Menu } from './../Elements';
+import React, {useState} from 'react';
 
-import React from 'react';
+export const MainScreen = ({ data, totalPages, sortHandler }) => {
+  const [view, setView] = useState('cards')
 
-export const MainScreen = ({ view, data, totalPages, sortHandler }) => {
-  const viewSwitch = () => {
-    switch (view) {
-      case 'TREE': {
-        return (
-          <>
-            <AppTreeView data={data} />
-          </>
-        );
-      }
-      default:
-        return <AppCardsView data={data} totalPages={totalPages} />;
-    }
+  const viewSwitch = (newView) => {
+    return newView !== view ? setView(newView) : null
   };
+
   return (
     <div>
       <Menu sortHandler={sortHandler} />
-      {viewSwitch()}
-      <Footer />
+      {view === 'tree' ? <AppTreeView data={data} /> : <AppCardsView data={data} totalPages={totalPages} />}
+      <Footer viewSwitchHandler={viewSwitch} currentView={view}/>
     </div>
   );
 };
