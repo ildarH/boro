@@ -1,28 +1,31 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { CssBaseline } from '@material-ui/core';
+import { MainScreen } from './components';
+import { fetchData } from './redux/actions';
+import { useSort } from './hooks';
 
 // import './App.css';
-import { CssBaseline } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { MainScreen } from './components';
-
-import { fetchData } from './redux/actions';
 
 function App() {
   const dispatch = useDispatch();
-  const selectData = useSelector(state => state.root.data)
-  const selectTotalPages = useSelector(state => state.root.totalPages)
+  const selectedData = useSelector((state) => state.root.data) || null;
+  const selectedTotalPages = useSelector((state) => state.root.totalPages) || null;
+  const { sortedData, requestSort, sortConfig } = useSort(selectedData);
 
   useEffect(() => {
-    dispatch(fetchData('catalog.json'))
-  }, [dispatch])
+    dispatch(fetchData('catalog.json'));
+  }, [dispatch]);
+  useEffect(() => {
+
+  })
 
   return (
-    // <div className='App'>
     <>
       <CssBaseline />
-      <MainScreen data={selectData} totalPages={selectTotalPages} />
+      <MainScreen data={sortedData || selectedData} totalPages={selectedTotalPages} sortHandler={requestSort} />
     </>
-    // </div>
   );
 }
 

@@ -10,8 +10,8 @@ import {
   SHOW_LOADER,
 } from './types';
 
-import { Http } from './../api/http';
 import { BASE_URL } from './../config';
+import { Http } from './../api/http';
 
 const mapResponse = (response) => {
   return response.map((entry, i) => {
@@ -28,6 +28,7 @@ const mapResponse = (response) => {
       subheader: entry.category.replace(/^\w/, (c) => c.toUpperCase()),
       image: `${BASE_URL}` + entry.image,
       filesize: entry.filesize,
+      timestamp: entry.timestamp,
       date: new Date(entry.timestamp).toUTCString(),
       category: entry.category,
     };

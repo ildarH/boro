@@ -1,13 +1,10 @@
-import React from 'react';
-
-import style from './View.module.css';
-
 import { AppCard } from './../Elements';
 import { Grid } from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
+import React from 'react';
+import style from './View.module.css';
 
 export const CardsView = ({ data, totalPages }) => {
-  console.log('totalPages ', totalPages);
   return (
     <div className={style.viewScreen}>
       <Pagination count={totalPages} />

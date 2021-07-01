@@ -1,9 +1,9 @@
+import { CardsView, TreeView } from './../Views';
+import { Footer, Menu } from './../Elements';
+
 import React from 'react';
 
-import { CardsView, TreeView } from './../Views';
-import { Menu, Footer } from './../Elements';
-
-export const MainScreen = ({ view, data, totalPages }) => {
+export const MainScreen = ({ view, data, totalPages, sortHandler }) => {
   const viewSwitch = () => {
     switch (view) {
       case 'TREE': {
@@ -19,7 +19,7 @@ export const MainScreen = ({ view, data, totalPages }) => {
   };
   return (
     <div>
-      <Menu />
+      <Menu sortHandler={sortHandler} />
       {viewSwitch()}
       <Footer />
     </div>

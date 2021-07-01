@@ -1,13 +1,13 @@
 import {
-  SHOW_LOADER,
-  HIDE_LOADER,
-  FETCH_DATA,
-  SHOW_ERROR,
-  HIDE_ERROR,
-  SET_CLOSED_CARDS,
   CLEAR_CLOSED_CARDS,
+  FETCH_DATA,
+  HIDE_ERROR,
+  HIDE_LOADER,
+  SET_CLOSED_CARDS,
   SET_CURRENT_PAGE,
   SET_TOTAL_PAGES,
+  SHOW_ERROR,
+  SHOW_LOADER,
 } from './types';
 
 const initialState = {
@@ -75,7 +75,6 @@ export const rootReducer = (state = initialState, {type, payload}) => {
         ...state,
         totalPages: payload
       }
-      console.log('SET_TOTAL_PAGES ', newState);
       return newState
     }
     case SET_CURRENT_PAGE: {
