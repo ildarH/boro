@@ -5,7 +5,14 @@ import Pagination from '@material-ui/lab/Pagination';
 import React from 'react';
 import style from './Footer.module.css';
 
-export const Footer = ({ viewSwitchHandler, currentView, totalPages }) => {
+export const Footer = ({
+  viewSwitchHandler,
+  currentView,
+  totalPages,
+  currentPage,
+  setPageHandler,
+}) => {
+  console.log('current page: ', currentPage);
   return (
     <div className={style.footer}>
       <Toolbar className={style.toolbar}>
@@ -24,7 +31,12 @@ export const Footer = ({ viewSwitchHandler, currentView, totalPages }) => {
           </IconButton>
         </div>
         <div>
-          <Pagination count={totalPages} />
+          <Pagination
+            color='secondary'
+            count={totalPages}
+            page={currentPage}
+            onChange={(e, page) => setPageHandler(page)}
+          />
         </div>
       </Toolbar>
     </div>

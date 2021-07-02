@@ -11,10 +11,12 @@ const useStyles = makeStyles({
   root: {
     height: '82vh',
     flexGrow: 1,
-    maxWidth: 400,
+    maxWidth: 500,
+    width:'25vw'
   },
   container: {
     overflowY: 'auto',
+    overflowX: 'hidden',
     '&::-webkit-scrollbar': {
       width: '5px',
       height: '5px',

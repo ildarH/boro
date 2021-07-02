@@ -31,7 +31,7 @@ const mapResponse = (response) => {
       timestamp: entry.timestamp,
       date: new Date(entry.timestamp).toUTCString(),
       category: entry.category,
-      filename: entry.image.split('/')[1]
+      filename: entry.image.split('/')[1],
     };
   });
 };
@@ -42,7 +42,7 @@ export const fetchData = (params) => async (dispatch) => {
   try {
     const response = await Http.get(params);
     dispatch({ type: FETCH_DATA, payload: mapResponse(response) });
-    dispatch({ type: SET_TOTAL_PAGES, payload: response.length / 6 });
+    dispatch({ type: SET_TOTAL_PAGES, payload: Math.ceil(response.length / 6) });
   } catch (error) {
     console.error('error: ', error);
     dispatch({ type: SHOW_ERROR, payload: error });

@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import React from 'react';
 import style from './View.module.css';
 
-export const AppCardsView = ({ data, totalPages }) => {
+export const AppCardsView = ({ data }) => {
   return (
     <div className={style.viewScreen}>
       <Grid
@@ -13,7 +13,7 @@ export const AppCardsView = ({ data, totalPages }) => {
         justify='space-around'
         alignItems='center'
         spacing={3}>
-        {data.slice(0, 6).map((card, i) => (
+        {data.map((card, i) => (
           <AppCard key={i} cardData={card} />
         ))}
       </Grid>
