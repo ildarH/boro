@@ -8,3 +8,6 @@
   text-align: center;
   min-height: 3rem;
 }
+.toolbar  {
+  justify-content: space-between;
+}

@@ -31,6 +31,7 @@ const mapResponse = (response) => {
       timestamp: entry.timestamp,
       date: new Date(entry.timestamp).toUTCString(),
       category: entry.category,
+      filename: entry.image.split('/')[1]
     };
   });
 };

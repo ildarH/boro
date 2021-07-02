@@ -1,13 +1,11 @@
 import { AppCard } from './../Elements';
 import { Grid } from '@material-ui/core';
-import Pagination from '@material-ui/lab/Pagination';
 import React from 'react';
 import style from './View.module.css';
 
 export const AppCardsView = ({ data, totalPages }) => {
   return (
     <div className={style.viewScreen}>
-      <Pagination count={totalPages} />
       <Grid
         container
         wrap='wrap'
