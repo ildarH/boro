@@ -19,6 +19,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchData('catalog.json'));
+    document.title = "Boro";
   }, [dispatch]);
 
   useEffect(() => {
