@@ -12,9 +12,9 @@ import {
 
 const initialState = {
   isDataLoading: true,
-  data: null,
+  data: [],
   error: null,
-  closedCards: null,
+  closedCards: [],
   totalPages: 0,
   currentPage: 1
 }
@@ -66,7 +66,7 @@ export const rootReducer = (state = initialState, {type, payload}) => {
     case CLEAR_CLOSED_CARDS: {
       const newState = {
         ...state,
-        closedCards: null
+        closedCards: []
       }
       return newState
     }

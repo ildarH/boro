@@ -1,11 +1,12 @@
 import { AppCard } from './../Elements';
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import style from './View.module.css';
+import viewStyle from './ViewStyle.module.css';
 
-export const AppCardsView = ({ data }) => {
+export const AppCardsView = ({ data, closeCardHandler }) => {
+
   return (
-    <div className={style.viewScreen}>
+    <div className={viewStyle.cardView}>
       <Grid
         container
         wrap='wrap'
@@ -14,7 +15,7 @@ export const AppCardsView = ({ data }) => {
         alignItems='center'
         spacing={3}>
         {data.map((card, i) => (
-          <AppCard key={i} cardData={card} />
+          <AppCard key={i} cardData={card} closeCardHandler={closeCardHandler} />
         ))}
       </Grid>
     </div>

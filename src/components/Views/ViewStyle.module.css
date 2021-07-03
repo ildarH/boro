@@ -1,0 +1,36 @@
+.cardView {
+  padding: 2em;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 48px - 48px);
+}
+.cardView::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.cardView::-webkit-scrollbar-thumb {
+  background: radial-gradient(circle, #4752b2 14%, #c7ceff 64%);
+  border-radius: 10px;
+}
+.cardView::-webkit-scrollbar-thumb:hover {
+  background: radial-gradient(circle, #4752b2 14%, #8b93d6 64%);
+}
+.cardView::-webkit-scrollbar-track {
+  background: #4752b2;
+  border-radius: 10px;
+  box-shadow: inset 7px 10px 12px 0px #c7ceff;
+}
+
+.treeView {
+  padding: 2em;
+  overflow-y: auto;
+  height: calc(100vh - 48px - 48px);
+}
+.root {
+  max-width: 70%;
+  width: 70%;
+}
+.media {
+  height: 0;
+  padding-top: 56.25%;
+}

@@ -1,18 +1,18 @@
-import React from 'react';
-
-import PropTypes from 'prop-types';
-
 import {
   Card,
-  CardHeader,
-  Grid,
   CardContent,
+  CardHeader,
   CardMedia,
+  Grid,
   Typography,
   makeStyles,
 } from '@material-ui/core';
-import IconButton from '@material-ui/core/IconButton';
+
 import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
+import PropTypes from 'prop-types';
+import React from 'react';
+import prettyBytes from 'pretty-bytes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,17 +27,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const AppCard = ({ cardData }) => {
-  const { id, header, subheader, image, filesize, date, category } = cardData;
+export const AppCard = ({ cardData, closeCardHandler }) => {
+  const { id, header, subheader, image, filesize, date } = cardData;
 
   const classes = useStyles();
 
   return (
-    <Grid item s className={classes.root}>
+    <Grid item className={classes.root}>
       <Card>
         <CardHeader
           action={
-            <IconButton>
+            <IconButton onClick={() => closeCardHandler(id)}>
               <CloseIcon />
             </IconButton>
           }
@@ -45,12 +45,14 @@ export const AppCard = ({ cardData }) => {
           title={header}
           subheader={subheader}
         />
-        <CardMedia image={image} className={classes.media} />
+        <CardMedia image={image} className={classes.media} style={{ alignItems: 'self-end' }} />
+
         <CardContent>
-          <Typography variant='body2'>{date}</Typography>
-          <Typography variant='body2'>{id}</Typography>
-          <Typography variant='body2'>{filesize}</Typography>
-          <Typography variant='body2'>{category}</Typography>
+          <Typography variant='body2' style={{ alignSelf: 'flex-end' }}>
+            {date}
+          </Typography>
+
+          <Typography variant='body2'>{prettyBytes(filesize)}</Typography>
         </CardContent>
       </Card>
     </Grid>
@@ -58,11 +60,6 @@ export const AppCard = ({ cardData }) => {
 };
 
 AppCard.prototype = {
-  id: PropTypes.number,
-  header: PropTypes.string,
-  subheader: PropTypes.string,
-  image: PropTypes.string,
-  filesize: PropTypes.number,
-  date: PropTypes.string,
-  category: PropTypes.string,
+  cardData: PropTypes.object,
+  closeCardHandler: PropTypes.func
 };

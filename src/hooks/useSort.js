@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-export const useSort = (items, config = null) => {
+export const useSort = (items = [], config = null) => {
   const [sortConfig, setSortConfig] = useState(config);
   const sortedItems = useMemo(() => {
     let sortableItems = [...items];

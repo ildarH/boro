@@ -3,7 +3,7 @@ import { IconButton, Toolbar } from '@material-ui/core';
 
 import Pagination from '@material-ui/lab/Pagination';
 import React from 'react';
-import style from './Footer.module.css';
+import style from './Elements.module.css';
 
 export const Footer = ({
   viewSwitchHandler,
@@ -12,7 +12,7 @@ export const Footer = ({
   currentPage,
   setPageHandler,
 }) => {
-  console.log('current page: ', currentPage);
+
   return (
     <div className={style.footer}>
       <Toolbar className={style.toolbar}>
@@ -21,13 +21,13 @@ export const Footer = ({
             edge='end'
             onClick={() => viewSwitchHandler('cards')}
             disabled={currentView === 'cards' ? true : false}>
-            <ViewModule color={currentView === 'cards' ? 'inherit' : 'action'} />
+            <ViewModule color={currentView === 'cards' ? 'action' : 'disabled'} />
           </IconButton>
           <IconButton
             edge='end'
             onClick={() => viewSwitchHandler('tree')}
             disabled={currentView === 'tree' ? true : false}>
-            <AccountTree color={currentView === 'tree' ? 'inherit' : 'action'} />
+            <AccountTree color={currentView === 'tree' ? 'action' : 'disabled'} />
           </IconButton>
         </div>
         <div>

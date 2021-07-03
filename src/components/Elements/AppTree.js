@@ -11,8 +11,7 @@ const useStyles = makeStyles({
   root: {
     height: '82vh',
     flexGrow: 1,
-    maxWidth: 500,
-    width:'25vw'
+    width:'40vw',
   },
   container: {
     overflowY: 'auto',
@@ -36,7 +35,9 @@ const useStyles = makeStyles({
   },
   label: {
     fontSize: '0.9rem',
-    overflowWrap: 'normal'
+    overflowWrap: 'normal',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap'
   }
 });
 
@@ -45,7 +46,7 @@ export const AppTree = ({ treeData, onImageClickHandler }) => {
 
   const renderTree = (nodes) => {
     return nodes.map((node, i) => (
-      <TreeItem key={i} nodeId={node.id.toString()} label={node.header}
+      <TreeItem key={i} nodeId={node.id.toString()} label={`${node.header} / ${node.subheader}`}
           classes={{label: classes.label}}
       >
         <TreeItem
@@ -80,7 +81,6 @@ export const AppTree = ({ treeData, onImageClickHandler }) => {
     <div className={classes.container}>
       <TreeView
         className={classes.root}
-        defaultExpanded={['0']}
         defaultExpandIcon={<Add />}
         defaultCollapseIcon={<Remove />}
         >

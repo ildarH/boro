@@ -50,6 +50,6 @@ export const fetchData = (params) => async (dispatch) => {
     dispatch({ type: HIDE_LOADER });
   }
 };
-export const closeCard = (card) => ({ type: SET_CLOSED_CARDS, payload: card });
+export const closeCard = (card) => dispatch => {dispatch({ type: SET_CLOSED_CARDS, payload: card })}
 export const resetCards = () => ({ type: CLEAR_CLOSED_CARDS });
 export const setPage = (page) => ({ type: SET_CURRENT_PAGE, payload: page });
