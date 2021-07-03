@@ -14,16 +14,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import prettyBytes from 'pretty-bytes';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     maxWidth: '20rem',
     width: '20rem',
   },
   media: {
     height: '20rem',
-  },
-  header: {
-    fontSize: '10px',
   },
 }));
 
@@ -45,13 +42,12 @@ export const AppCard = ({ cardData, closeCardHandler }) => {
           title={header}
           subheader={subheader}
         />
-        <CardMedia image={image} className={classes.media} style={{ alignItems: 'self-end' }} />
+        <CardMedia image={image} className={classes.media} />
 
         <CardContent>
           <Typography variant='body2' style={{ alignSelf: 'flex-end' }}>
             {date}
           </Typography>
-
           <Typography variant='body2'>{prettyBytes(filesize)}</Typography>
         </CardContent>
       </Card>
@@ -61,5 +57,5 @@ export const AppCard = ({ cardData, closeCardHandler }) => {
 
 AppCard.prototype = {
   cardData: PropTypes.object,
-  closeCardHandler: PropTypes.func
+  closeCardHandler: PropTypes.func,
 };
